@@ -30,6 +30,7 @@ body {
   color: var(--text);
   background: var(--bg);
   line-height: 1.65;
+  -webkit-text-size-adjust: 100%;
 }
 
 img {
@@ -74,6 +75,7 @@ p {
 }
 
 .nav-wrap {
+  position: relative;
   min-height: 78px;
   display: flex;
   align-items: center;
@@ -148,6 +150,7 @@ p {
   border-radius: 12px;
   padding: 8px 12px;
   font-size: 1.2rem;
+  line-height: 1;
   cursor: pointer;
   color: var(--text);
 }
@@ -194,16 +197,16 @@ p {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 48px 48px;
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent 85%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 85%);
   pointer-events: none;
 }
 
 .bridge-line {
   position: absolute;
-  border-top: 1px solid rgba(255,255,255,0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
   pointer-events: none;
 }
@@ -358,7 +361,7 @@ p {
 }
 
 .dark-panel-label {
-  color: rgba(255,255,255,0.9);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .hero-card h2 {
@@ -411,7 +414,7 @@ p {
 }
 
 .section-label.light {
-  color: rgba(255,255,255,0.82);
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .section h2 {
@@ -562,9 +565,9 @@ p {
   border-radius: var(--radius);
   color: #fff;
   background:
-    radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.18), transparent 28%),
     linear-gradient(135deg, #10345c, #1c5794 58%, #2c72b7);
-  border: 1px solid rgba(255,255,255,0.14);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: var(--shadow-strong);
 }
 
@@ -705,7 +708,7 @@ p {
 
 .site-footer a,
 .footer-links a {
-  color: rgba(255,255,255,0.9);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .contact-panel a,
@@ -743,7 +746,7 @@ p {
 .cta-band {
   color: #fff;
   background:
-    radial-gradient(circle at top left, rgba(255,255,255,0.11), transparent 20%),
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.11), transparent 20%),
     linear-gradient(135deg, #10345b, #184f8f 56%, #2b72b8);
 }
 
@@ -759,14 +762,14 @@ p {
 }
 
 .cta-band p {
-  color: rgba(255,255,255,0.9);
+  color: rgba(255, 255, 255, 0.9);
   max-width: 740px;
 }
 
 .site-footer {
   padding-top: 44px;
   background: #0d2136;
-  color: rgba(255,255,255,0.86);
+  color: rgba(255, 255, 255, 0.86);
 }
 
 .site-footer h3,
@@ -816,8 +819,8 @@ p {
 .footer-bottom {
   margin-top: 28px;
   padding: 18px 0 24px;
-  border-top: 1px solid rgba(255,255,255,0.12);
-  color: rgba(255,255,255,0.68);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.68);
   font-size: 0.94rem;
 }
 
@@ -854,7 +857,8 @@ p {
     display: none;
     position: absolute;
     top: 78px;
-    right: 4%;
+    right: 0;
+    z-index: 20;
     width: min(280px, 92vw);
     flex-direction: column;
     align-items: flex-start;

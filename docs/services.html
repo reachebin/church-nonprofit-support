@@ -1,260 +1,929 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services | Ebin Johnson</title>
-  <meta
-    name="description"
-    content="Website, communications, and operations support services for churches, nonprofits, community groups, and selected small local businesses in Sarnia and surrounding communities."
-  />
-  <link rel="icon" type="image/png" href="assets/images/EJbluelogo1.png" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="index.html" class="brand brand-image-logo" aria-label="Ebin Johnson home">
-        <img src="assets/images/EJbluelogo1.png" alt="Ebin Johnson logo" class="site-logo-image" />
-      </a>
+:root {
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --surface-soft: #edf2f8;
+  --text: #16263d;
+  --muted: #44586f;
+  --primary: #184f8f;
+  --primary-2: #2e74b7;
+  --primary-3: #0f3560;
+  --accent: #77bbff;
+  --border: #d8e2ee;
+  --border-strong: #c7d4e2;
+  --shadow: 0 14px 34px rgba(17, 35, 60, 0.08);
+  --shadow-strong: 0 20px 56px rgba(13, 35, 67, 0.14);
+  --radius: 22px;
+  --max-width: 1240px;
+}
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
-        ☰
-      </button>
+* {
+  box-sizing: border-box;
+}
 
-      <div class="header-actions">
-        <nav class="site-nav" id="siteNav">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="services.html" class="active">Services</a>
-          <a href="contact.html">Contact</a>
-        </nav>
+html {
+  scroll-behavior: smooth;
+}
 
-        <a href="mailto:hello@ebinjohnson.ca?subject=Service%20Inquiry" class="btn btn-nav header-cta">
-          Email Me
-        </a>
-      </div>
-    </div>
-  </header>
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.65;
+  -webkit-text-size-adjust: 100%;
+}
 
-  <main>
-    <section class="page-hero">
-      <div class="container narrow">
-        <p class="section-label">Services</p>
-        <h1>Focused support for organizations that need practical help, not complexity</h1>
-        <p class="page-hero-text">
-          Practical support for organizations that need clearer systems, more consistent updates,
-          and less day-to-day friction.
-        </p>
-      </div>
-    </section>
+img {
+  max-width: 100%;
+  display: block;
+}
 
-    <section class="section">
-      <div class="container">
-        <div class="section-header center">
-          <p class="section-label">Service options</p>
-          <h2>Four practical ways I can help</h2>
-          <p class="section-intro wide">
-            The best first project usually solves one clear bottleneck quickly:
-            outdated website content, scattered communication, or recurring work without a simple system behind it.
-          </p>
-        </div>
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
 
-        <div class="service-cards-grid">
-          <article class="marketing-service-card featured-service">
-            <div class="service-topline">For churches and faith communities</div>
-            <h3>Website Updates & Announcement Support</h3>
-            <p class="service-summary">
-              One-time or ongoing help to keep website content, event details,
-              and public updates clear, current, and easy to trust.
-            </p>
-            <ul class="marketing-list">
-              <li>Homepage and key page updates</li>
-              <li>Service time and event information changes</li>
-              <li>Announcements and bulletin uploads</li>
-              <li>Content cleanup and consistency improvements</li>
-              <li>Recurring updates if needed</li>
-            </ul>
-            <div class="service-fit">
-              Best fit when important public-facing information is often outdated or updated too late.
-            </div>
-          </article>
+a:hover {
+  text-decoration: none;
+}
 
-          <article class="marketing-service-card">
-            <div class="service-topline">For churches and community groups</div>
-            <h3>Social Media & Public Updates Support</h3>
-            <p class="service-summary">
-              Practical help creating a steadier rhythm for event reminders,
-              public updates, and ministry or program communication.
-            </p>
-            <ul class="marketing-list">
-              <li>Announcement posts</li>
-              <li>Event reminder posts</li>
-              <li>Special event promotion support</li>
-              <li>Basic content planning</li>
-              <li>Caption writing and posting support</li>
-            </ul>
-            <div class="service-fit">
-              Best fit when communication is happening, but not consistently enough for people to follow.
-            </div>
-          </article>
+p {
+  margin-top: 0;
+}
 
-          <article class="marketing-service-card">
-            <div class="service-topline">For nonprofits and organizations</div>
-            <h3>Operations Setup & Workflow Improvement</h3>
-            <p class="service-summary">
-              Practical support to reduce scattered work, improve follow-through,
-              and build simple systems your team can actually maintain.
-            </p>
-            <ul class="marketing-list">
-              <li>Recurring admin checklists</li>
-              <li>Action trackers and decision logs</li>
-              <li>Folder and file organization improvements</li>
-              <li>Workflow review and practical improvement suggestions</li>
-              <li>Light AI-enabled workflow guidance where appropriate</li>
-            </ul>
-            <div class="service-fit">
-              Best fit when recurring work depends too much on memory instead of simple systems.
-            </div>
-          </article>
+.container {
+  width: min(94%, var(--max-width));
+  margin: 0 auto;
+}
 
-          <article class="marketing-service-card">
-            <div class="service-topline">For selected small local businesses</div>
-            <h3>Simple Website & Digital Upkeep Support</h3>
-            <p class="service-summary">
-              Practical help for businesses that need a simple online presence,
-              cleaner website updates, or light ongoing digital support.
-            </p>
-            <ul class="marketing-list">
-              <li>Simple website setup or refresh support</li>
-              <li>Page content updates</li>
-              <li>Service and contact information cleanup</li>
-              <li>Basic update support after launch</li>
-              <li>Help keeping the website current</li>
-            </ul>
-            <div class="service-fit">
-              Best fit when the work needed is practical, scoped, and does not require a full agency engagement.
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+.narrow {
+  width: min(92%, 900px);
+  margin: 0 auto;
+}
 
-    <section class="section alt-bg">
-      <div class="container">
-        <div class="section-header center">
-          <p class="section-label">Good first projects</p>
-          <h2>Common starting points</h2>
-          <p class="section-intro wide">
-            Most engagements begin with one clear problem instead of trying to fix everything at once.
-          </p>
-        </div>
+.mb-18 {
+  margin-bottom: 18px;
+}
 
-        <div class="feature-grid three-up">
-          <article class="feature-card elevated-card">
-            <h3>Website cleanup</h3>
-            <p>
-              Outdated information, missing updates, or inconsistent page content that needs attention.
-            </p>
-          </article>
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(215, 226, 238, 0.82);
+}
 
-          <article class="feature-card elevated-card">
-            <h3>Announcement consistency</h3>
-            <p>
-              Communication that is happening irregularly or is too hard for people to follow.
-            </p>
-          </article>
+.nav-wrap {
+  position: relative;
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
 
-          <article class="feature-card elevated-card">
-            <h3>Recurring admin structure</h3>
-            <p>
-              Important work that needs simple checklists, trackers, and clearer handoffs.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text);
+  font-weight: 700;
+  flex-shrink: 0;
+}
 
-    <section class="section">
-      <div class="container note-grid">
-        <article class="note-card">
-          <p class="section-label">Best fit when</p>
-          <h2>You need practical, scoped support</h2>
-          <ul class="check-list dark">
-            <li>Your team is active but stretched</li>
-            <li>Updates matter, but consistency is slipping</li>
-            <li>You want help that is clear and manageable</li>
-            <li>You want improvement without unnecessary complexity</li>
-          </ul>
-        </article>
+.brand:hover {
+  color: var(--text);
+}
 
-        <article class="note-card note-card-alt">
-          <p class="section-label">Less likely to be a fit</p>
-          <h2>Not a full agency model</h2>
-          <ul class="check-list dark">
-            <li>Large multi-channel marketing campaigns</li>
-            <li>Heavy custom development projects</li>
-            <li>Complex branding programs</li>
-            <li>Big-team agency-style retainers</li>
-          </ul>
-        </article>
-      </div>
-    </section>
+.brand-image-logo {
+  display: inline-flex;
+  align-items: center;
+}
 
-    <section class="section cta-band">
-      <div class="container cta-band-inner">
-        <div>
-          <p class="section-label light">Next step</p>
-          <h2>Start with a short conversation about what support would help most</h2>
-          <p>
-            A simple email is enough to describe your organization, what feels difficult right now,
-            and whether you need website, communications, or operations support.
-          </p>
-        </div>
+.site-logo-image {
+  height: 54px;
+  width: auto;
+  object-fit: contain;
+}
 
-        <div class="cta-band-actions">
-          <a href="mailto:hello@ebinjohnson.ca?subject=Service%20Inquiry" class="btn btn-light">Email Me</a>
-          <a href="contact.html" class="btn btn-outline-light">Contact Page</a>
-        </div>
-      </div>
-    </section>
-  </main>
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand-block">
-        <div class="footer-logo-row">
-          <img src="assets/images/EJbluelogo1.png" alt="Ebin Johnson logo" class="footer-logo-image" />
-        </div>
-        <p>
-          Website, communications, and operations support for churches, nonprofits,
-          community groups, and selected small local businesses.
-        </p>
-      </div>
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
 
-      <div>
-        <h4>Pages</h4>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
+.site-nav a {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.96rem;
+  position: relative;
+}
 
-      <div>
-        <h4>Contact</h4>
-        <p>Email: <a href="mailto:hello@ebinjohnson.ca">hello@ebinjohnson.ca</a></p>
-        <p>Phone: <a href="tel:+122696441575">1 226 9644 1575</a></p>
-        <p>Location: Sarnia, Ontario</p>
-      </div>
-    </div>
+.site-nav a.active,
+.site-nav a:hover {
+  color: var(--primary);
+}
 
-    <div class="container footer-bottom">
-      <p>© 2026 Ebin Johnson. All rights reserved.</p>
-    </div>
-  </footer>
+.site-nav a.active::after,
+.site-nav a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--primary);
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+.menu-toggle {
+  display: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background: linear-gradient(135deg, #10345b 0%, #184f8f 46%, #2b73b9 100%);
+}
+
+.hero-home {
+  min-height: calc(100vh - 78px);
+  padding: 82px 0 70px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(18px);
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+.hero-orb-1 {
+  width: 340px;
+  height: 340px;
+  right: -80px;
+  top: 70px;
+  background: radial-gradient(circle, rgba(141, 202, 255, 0.72), transparent 60%);
+}
+
+.hero-orb-2 {
+  width: 280px;
+  height: 280px;
+  left: -60px;
+  bottom: -40px;
+  background: radial-gradient(circle, rgba(110, 191, 255, 0.48), transparent 60%);
+}
+
+.hero-gridline {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 85%);
+  pointer-events: none;
+}
+
+.bridge-line {
+  position: absolute;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.bridge-line-1 {
+  width: 520px;
+  height: 180px;
+  right: 6%;
+  bottom: 16%;
+}
+
+.bridge-line-2 {
+  width: 680px;
+  height: 240px;
+  right: -4%;
+  bottom: 8%;
+  opacity: 0.7;
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.06fr 0.94fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.84);
+  max-width: 640px;
+}
+
+.hero h1,
+.page-hero h1 {
+  margin: 0 0 18px;
+  line-height: 1.08;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+}
+
+.hero-text,
+.page-hero-text {
+  margin: 0;
+  max-width: 700px;
+  font-size: 1.05rem;
+}
+
+.hero-text {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.page-hero-text {
+  color: var(--muted);
+}
+
+.hero-actions,
+.cta-band-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 11px 18px;
+  border-radius: 14px;
+  font-weight: 700;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary,
+.btn-light {
+  background: #ffffff;
+  color: var(--primary);
+  box-shadow: 0 12px 24px rgba(8, 24, 47, 0.12);
+}
+
+.btn-primary:hover,
+.btn-light:hover {
+  background: #eef5ff;
+}
+
+.btn-secondary,
+.btn-outline-light {
+  border: 1px solid rgba(255, 255, 255, 0.44);
+  color: #ffffff;
+  background: transparent;
+}
+
+.btn-secondary:hover,
+.btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btn-nav {
+  min-height: 42px;
+  padding: 9px 15px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #fff;
+  box-shadow: none;
+}
+
+.btn-nav:hover {
+  background: var(--primary-3);
+  color: #fff;
+}
+
+.hero-side {
+  display: grid;
+  gap: 18px;
+}
+
+.hero-card {
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow-strong);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+}
+
+.glass-card h2,
+.glass-card p,
+.glass-card li {
+  color: #fff;
+}
+
+.panel-label {
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.dark-panel-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-card h2 {
+  margin: 0 0 14px;
+  font-size: 1.85rem;
+  line-height: 1.2;
+}
+
+.check-list {
+  margin: 14px 0 0;
+  padding-left: 22px;
+}
+
+.check-list li {
+  margin-bottom: 10px;
+}
+
+.check-list.dark li {
+  color: var(--text);
+}
+
+.page-hero {
+  padding: 76px 0 48px;
+  background: linear-gradient(180deg, #eef4fb 0%, #f7f9fc 100%);
+}
+
+.section {
+  padding: 72px 0;
+}
+
+.alt-bg {
+  background: var(--surface-soft);
+}
+
+.section-header {
+  margin-bottom: 28px;
+}
+
+.section-header.center {
+  text-align: center;
+}
+
+.section-label {
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.section-label.light {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.section h2 {
+  margin: 0 0 14px;
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  line-height: 1.16;
+}
+
+.section-intro {
+  color: var(--muted);
+  max-width: 760px;
+}
+
+.section-intro.wide {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.two-col-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 34px;
+  align-items: start;
+}
+
+.fit-layout {
+  display: grid;
+  gap: 26px;
+}
+
+.fit-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+  gap: 26px;
+  align-items: start;
+}
+
+.audience-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.audience-grid.three-up {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.audience-card {
+  padding: 22px 24px;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.audience-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.08rem;
+}
+
+.audience-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.feature-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.feature-grid.three-up {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.feature-card,
+.soft-card,
+.step-card,
+.contact-card,
+.contact-panel,
+.showcase-card,
+.marketing-service-card,
+.note-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.feature-card,
+.soft-card {
+  border-radius: var(--radius);
+  padding: 26px;
+}
+
+.elevated-card,
+.marketing-service-card,
+.audience-card,
+.stacked-item,
+.note-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.elevated-card:hover,
+.marketing-service-card:hover,
+.audience-card:hover,
+.stacked-item:hover,
+.note-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-strong);
+}
+
+.feature-card h3,
+.soft-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.feature-card p,
+.soft-card p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.stacked-list {
+  display: grid;
+  gap: 16px;
+}
+
+.stacked-item {
+  padding: 20px 22px;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  border-left: 4px solid rgba(24, 79, 143, 0.16);
+}
+
+.stacked-item h3 {
+  margin: 0 0 8px;
+}
+
+.stacked-item p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.premium-gradient {
+  padding: 28px 28px 26px;
+  border-radius: var(--radius);
+  color: #fff;
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.18), transparent 28%),
+    linear-gradient(135deg, #10345c, #1c5794 58%, #2c72b7);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: var(--shadow-strong);
+}
+
+.showcase-list {
+  margin: 16px 0 0;
+  padding-left: 22px;
+}
+
+.showcase-list li {
+  margin-bottom: 11px;
+  color: #fff;
+}
+
+.service-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.marketing-service-card {
+  border-radius: var(--radius);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.marketing-service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.featured-service {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.service-topline {
+  margin-bottom: 10px;
+  color: var(--primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.marketing-service-card h3 {
+  margin: 0 0 12px;
+  font-size: 1.5rem;
+  line-height: 1.22;
+}
+
+.service-summary {
+  margin: 0 0 20px;
+  color: var(--muted);
+}
+
+.marketing-list {
+  margin: 4px 0 0;
+  padding-left: 20px;
+}
+
+.marketing-list li {
+  margin-bottom: 9px;
+  color: var(--text);
+}
+
+.service-fit {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.note-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.note-card {
+  border-radius: var(--radius);
+  padding: 26px;
+}
+
+.note-card h2 {
+  font-size: 1.9rem;
+}
+
+.note-card-alt {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 26px;
+  align-items: start;
+}
+
+.contact-panel,
+.contact-card {
+  border-radius: var(--radius);
+  padding: 28px;
+}
+
+.large-card {
+  min-height: 100%;
+}
+
+.contact-detail-group {
+  margin-top: 20px;
+  display: grid;
+  gap: 14px;
+}
+
+.contact-detail {
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.contact-detail h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.contact-detail p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.contact-actions {
+  margin-top: 24px;
+}
+
+.site-footer a,
+.footer-links a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.contact-panel a,
+.contact-card a,
+.contact-detail a {
+  color: var(--primary-3);
+}
+
+.contact-guide-list {
+  padding-left: 20px;
+}
+
+.contact-guide-list li {
+  margin-bottom: 10px;
+}
+
+.placeholder-note {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 16px;
+  background: #f8fbff;
+  border: 1px dashed var(--border-strong);
+}
+
+.placeholder-note h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.placeholder-note p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.cta-band {
+  color: #fff;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.11), transparent 20%),
+    linear-gradient(135deg, #10345b, #184f8f 56%, #2b72b8);
+}
+
+.cta-band-inner {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cta-band h2 {
+  color: #fff;
+}
+
+.cta-band p {
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 740px;
+}
+
+.site-footer {
+  padding-top: 44px;
+  background: #0d2136;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.site-footer h3,
+.site-footer h4 {
+  color: #fff;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.8fr 1fr;
+  gap: 28px;
+}
+
+.footer-brand-block {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-logo-row {
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo-image {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li + li {
+  margin-top: 8px;
+}
+
+.footer-links a:hover,
+.site-footer a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  margin-top: 28px;
+  padding: 18px 0 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.94rem;
+}
+
+@media (max-width: 1180px) {
+  .hero-grid,
+  .two-col-grid,
+  .fit-intro,
+  .contact-layout,
+  .note-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid.three-up,
+  .audience-grid.three-up,
+  .service-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .header-cta {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .menu-toggle {
+    display: inline-block;
+  }
+
+  .header-actions {
+    gap: 0;
+  }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 78px;
+    right: 0;
+    z-index: 20;
+    width: min(280px, 92vw);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-strong);
+  }
+
+  .site-nav.open {
+    display: flex;
+  }
+
+  .site-nav a.active::after,
+  .site-nav a:hover::after {
+    display: none;
+  }
+
+  .hero-home,
+  .page-hero {
+    padding-top: 82px;
+  }
+
+  .bridge-line {
+    display: none;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .feature-grid.three-up,
+  .audience-grid.three-up,
+  .service-cards-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1,
+  .page-hero h1 {
+    font-size: clamp(2rem, 9vw, 3.1rem);
+  }
+
+  .site-logo-image {
+    height: 48px;
+  }
+
+  .footer-logo-image {
+    height: 56px;
+  }
+
+  .marketing-service-card,
+  .feature-card,
+  .soft-card,
+  .contact-card,
+  .contact-panel,
+  .audience-card,
+  .stacked-item,
+  .note-card {
+    padding: 22px;
+  }
+
+  .premium-gradient {
+    padding: 24px;
+  }
+}
