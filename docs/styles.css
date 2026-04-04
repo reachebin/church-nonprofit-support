@@ -328,9 +328,9 @@ p {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 0.88fr) minmax(420px, 1.12fr);
+  grid-template-columns: minmax(540px, 0.95fr) minmax(420px, 1.05fr);
   gap: clamp(1.5rem, 3vw, 3rem);
-  align-items: end;
+  align-items: center;
   min-height: inherit;
 }
 
@@ -351,9 +351,9 @@ p {
 .hero h1,
 .page-hero h1 {
   margin: 0 0 18px;
-  line-height: 1.05;
-  font-size: clamp(2.35rem, 4.2vw, 4.65rem);
-  text-wrap: balance;
+  line-height: 1.08;
+  font-size: clamp(2.35rem, 3.25vw, 4.1rem);
+  text-wrap: pretty;
 }
 
 .hero-text,
@@ -373,7 +373,8 @@ p {
 }
 
 .hero-content-panel {
-  max-width: min(100%, 610px);
+  width: 100%;
+  max-width: clamp(540px, 42vw, 700px);
   padding: clamp(1.25rem, 2.4vw, 1.8rem) clamp(1.2rem, 2.4vw, 1.8rem) clamp(1.35rem, 2.5vw, 1.9rem);
   border-radius: 28px;
   background: linear-gradient(180deg, rgba(10, 31, 56, 0.60) 0%, rgba(8, 24, 43, 0.46) 100%);
@@ -1676,7 +1677,16 @@ body.capture-mode .reveal.is-visible {
   }
 
   .hero-split-layout {
-    grid-template-columns: minmax(0, 0.86fr) minmax(460px, 1.14fr);
+    grid-template-columns: minmax(560px, 0.94fr) minmax(460px, 1.06fr);
+  }
+
+  .hero-content-panel {
+    max-width: clamp(560px, 40vw, 740px);
+  }
+
+  .hero h1,
+  .page-hero h1 {
+    font-size: clamp(2.5rem, 3vw, 4.2rem);
   }
 
   .hero-monitor-image {
