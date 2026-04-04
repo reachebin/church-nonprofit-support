@@ -16,7 +16,7 @@ The primary audience is:
 - Nonprofits
 - Community organizations
 
-There is also limited support for selected local businesses where there is a strong fit.
+There is also selective support for local businesses where there is a strong fit.
 
 ## Pages
 
@@ -28,7 +28,7 @@ There is also limited support for selected local businesses where there is a str
 ## Assets
 
 - `styles.css` — Main stylesheet
-- `script.js` — Mobile navigation behavior
+- `script.js` — Mobile navigation and reveal behavior
 - `site.webmanifest` — Web app manifest
 - `robots.txt` — Search engine crawl instructions
 - `sitemap.xml` — Sitemap for search engines
@@ -47,6 +47,11 @@ This is a simple static website built with:
 The site is deployed with GitHub Pages and connected to the custom domain:
 
 - `https://ebinjohnson.ca`
+
+## Notes
+
+- Append `?capture=1` to the URL for screenshot-safe capture mode.
+- Example: `https://ebinjohnson.ca/?capture=1`
 
 ## Contact
 

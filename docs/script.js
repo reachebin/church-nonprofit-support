@@ -55,8 +55,14 @@ if (menuToggle && siteNav) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const captureMode = urlParams.get("capture") === "1";
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const revealRegistry = new WeakSet();
+
+  if (captureMode) {
+    document.body.classList.add("capture-mode");
+  }
 
   const addReveal = (selector, options = {}) => {
     const {
@@ -108,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const revealElements = Array.from(document.querySelectorAll(".reveal"));
 
-  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+  if (captureMode || prefersReducedMotion || !("IntersectionObserver" in window)) {
     revealElements.forEach((element) => element.classList.add("is-visible"));
     return;
   }
