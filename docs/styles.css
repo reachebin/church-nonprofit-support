@@ -15,7 +15,10 @@
   --shadow: 0 14px 34px rgba(17, 35, 60, 0.08);
   --shadow-strong: 0 20px 56px rgba(13, 35, 67, 0.14);
   --radius: 22px;
-  --max-width: 1240px;
+  --max-width: 1320px;
+  --section-space: clamp(4.25rem, 7vw, 6.75rem);
+  --section-space-compact: clamp(3.25rem, 5vw, 5rem);
+  --content-gap: clamp(1.25rem, 2.4vw, 2.25rem);
 }
 
 * {
@@ -29,6 +32,7 @@ html {
 body {
   margin: 0;
   font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-size: clamp(1rem, 0.98rem + 0.18vw, 1.08rem);
   color: var(--text);
   background: var(--bg);
   line-height: 1.68;
@@ -65,12 +69,12 @@ p {
 }
 
 .container {
-  width: min(94%, var(--max-width));
+  width: min(92%, var(--max-width));
   margin: 0 auto;
 }
 
 .narrow {
-  width: min(92%, 900px);
+  width: min(92%, 940px);
   margin: 0 auto;
 }
 
@@ -237,15 +241,15 @@ p {
 }
 
 .hero-home {
-  min-height: calc(100vh - 78px);
-  padding: 82px 0 70px;
+  min-height: clamp(620px, calc(100svh - 78px), 820px);
+  padding: clamp(4.5rem, 8vw, 6.5rem) 0 clamp(3.75rem, 6vw, 5rem);
   display: flex;
   align-items: center;
 }
 
 .hero-home-image {
   min-height: auto;
-  padding: 74px 0 56px;
+  padding: clamp(4rem, 7vw, 5.5rem) 0 clamp(3rem, 5vw, 4.5rem);
 }
 
 .hero-orb {
@@ -287,8 +291,8 @@ p {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1.06fr 0.94fr;
-  gap: 36px;
+  grid-template-columns: minmax(0, 1.06fr) minmax(320px, 0.94fr);
+  gap: clamp(1.75rem, 3.2vw, 3.25rem);
   align-items: center;
 }
 
@@ -309,15 +313,16 @@ p {
 .hero h1,
 .page-hero h1 {
   margin: 0 0 18px;
-  line-height: 1.08;
-  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 1.05;
+  font-size: clamp(2.35rem, 4.2vw, 4.65rem);
+  text-wrap: balance;
 }
 
 .hero-text,
 .page-hero-text {
   margin: 0;
   max-width: 720px;
-  font-size: 1.06rem;
+  font-size: clamp(1rem, 0.98rem + 0.3vw, 1.12rem);
 }
 
 .hero-text {
@@ -326,7 +331,7 @@ p {
 
 .hero-text-short {
   max-width: 620px;
-  font-size: 1.02rem;
+  font-size: clamp(0.98rem, 0.96rem + 0.2vw, 1.08rem);
 }
 
 .page-hero-text {
@@ -338,14 +343,14 @@ p {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
-  margin-top: 28px;
+  margin-top: clamp(1.4rem, 3vw, 2rem);
 }
 
 .hero-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 22px;
+  margin-top: clamp(1rem, 2.4vw, 1.5rem);
 }
 
 .badge-chip {
@@ -373,13 +378,13 @@ p {
   border-radius: 24px;
   overflow: hidden;
   box-shadow: var(--shadow-strong);
-  max-width: 470px;
+  max-width: min(100%, 500px);
   margin-left: auto;
 }
 
 .hero-feature-image {
   width: 100%;
-  height: 290px;
+  height: clamp(250px, 26vw, 320px);
   object-fit: cover;
 }
 
@@ -430,18 +435,18 @@ p {
 
 /* Sections */
 .page-hero {
-  padding: 76px 0 48px;
+  padding: clamp(4.25rem, 7vw, 5.5rem) 0 clamp(2.75rem, 5vw, 4rem);
   background: linear-gradient(180deg, #eef4fb 0%, #f7f9fc 100%);
 }
 
 .section {
-  padding: 72px 0;
+  padding: var(--section-space) 0;
   position: relative;
   background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
 }
 
 .section-compact {
-  padding: 58px 0;
+  padding: var(--section-space-compact) 0;
 }
 
 main > .section + .section {
@@ -453,7 +458,7 @@ main > .section + .section {
 }
 
 .section-header {
-  margin-bottom: 28px;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
 }
 
 .section-header.center {
@@ -486,8 +491,9 @@ main > .section + .section {
 
 .section h2 {
   margin: 0 0 14px;
-  font-size: clamp(1.9rem, 3vw, 2.8rem);
-  line-height: 1.16;
+  font-size: clamp(2rem, 3.2vw, 3.15rem);
+  line-height: 1.14;
+  text-wrap: balance;
 }
 
 .section-intro {
@@ -504,19 +510,19 @@ main > .section + .section {
 .two-col-grid {
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
-  gap: 34px;
+  gap: var(--content-gap);
   align-items: start;
 }
 
 .fit-layout {
   display: grid;
-  gap: 26px;
+  gap: var(--content-gap);
 }
 
 .fit-intro {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
-  gap: 26px;
+  gap: var(--content-gap);
   align-items: start;
 }
 
@@ -524,7 +530,7 @@ main > .section + .section {
 .service-visual-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  gap: clamp(1rem, 2.2vw, 1.5rem);
 }
 
 .service-visual-card {
@@ -544,7 +550,7 @@ main > .section + .section {
 
 .service-image-wrap {
   width: 100%;
-  height: 220px;
+  height: clamp(200px, 22vw, 240px);
   overflow: hidden;
   background: #dfe8f3;
 }
@@ -556,7 +562,7 @@ main > .section + .section {
 }
 
 .service-visual-body {
-  padding: 22px;
+  padding: clamp(1.2rem, 2vw, 1.5rem);
 }
 
 .service-visual-body h3 {
@@ -572,7 +578,7 @@ main > .section + .section {
 /* Cards / grids */
 .audience-grid {
   display: grid;
-  gap: 18px;
+  gap: clamp(1rem, 2vw, 1.25rem);
 }
 
 .audience-grid.three-up {
@@ -600,7 +606,7 @@ main > .section + .section {
 
 .feature-grid {
   display: grid;
-  gap: 24px;
+  gap: clamp(1rem, 2.2vw, 1.5rem);
 }
 
 .feature-grid.three-up {
@@ -626,7 +632,7 @@ main > .section + .section {
 .step-card,
 .task-card {
   border-radius: var(--radius);
-  padding: 26px;
+  padding: clamp(1.2rem, 2.2vw, 1.65rem);
 }
 
 .elevated-card,
@@ -667,11 +673,11 @@ main > .section + .section {
 .task-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: clamp(1rem, 2vw, 1.25rem);
 }
 
 .task-card-compact {
-  padding: 22px;
+  padding: clamp(1.1rem, 2vw, 1.35rem);
 }
 
 .task-card-compact h3 {
@@ -726,7 +732,7 @@ main > .section + .section {
 .service-cards-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
+  gap: clamp(1rem, 2.2vw, 1.5rem);
 }
 
 .service-cards-grid-three {
@@ -735,7 +741,7 @@ main > .section + .section {
 
 .marketing-service-card {
   border-radius: var(--radius);
-  padding: 28px;
+  padding: clamp(1.25rem, 2.2vw, 1.75rem);
   position: relative;
   overflow: hidden;
   display: flex;
@@ -794,7 +800,7 @@ main > .section + .section {
 .step-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
+  gap: clamp(1rem, 2vw, 1.35rem);
 }
 
 .step-card {
@@ -829,7 +835,7 @@ main > .section + .section {
 .note-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
+  gap: clamp(1rem, 2.2vw, 1.5rem);
 }
 
 .note-card {
@@ -849,14 +855,14 @@ main > .section + .section {
 .contact-layout {
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
-  gap: 26px;
+  gap: var(--content-gap);
   align-items: start;
 }
 
 .contact-panel,
 .contact-card {
   border-radius: var(--radius);
-  padding: 28px;
+  padding: clamp(1.25rem, 2.2vw, 1.75rem);
 }
 
 .large-card {
@@ -957,7 +963,7 @@ main > .section + .section {
 
 .cta-band-inner {
   display: flex;
-  gap: 24px;
+  gap: clamp(1rem, 2.2vw, 1.5rem);
   align-items: center;
   justify-content: space-between;
 }
@@ -991,7 +997,7 @@ main > .section + .section {
 .footer-grid {
   display: grid;
   grid-template-columns: 1.3fr 0.8fr 1fr;
-  gap: 28px;
+  gap: clamp(1.1rem, 2.5vw, 1.75rem);
 }
 
 .footer-brand-block {
@@ -1039,8 +1045,8 @@ main > .section + .section {
 /* Selected work */
 .proof-card {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 24px;
+  grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.96fr);
+  gap: clamp(1rem, 2.2vw, 1.5rem);
   align-items: stretch;
 }
 
@@ -1053,7 +1059,7 @@ main > .section + .section {
 }
 
 .proof-copy {
-  padding: 30px;
+  padding: clamp(1.35rem, 2.4vw, 1.9rem);
 }
 
 .proof-kicker {
@@ -1067,8 +1073,9 @@ main > .section + .section {
 
 .proof-copy h3 {
   margin: 0 0 12px;
-  font-size: 1.8rem;
-  line-height: 1.18;
+  font-size: clamp(1.6rem, 2.3vw, 2rem);
+  line-height: 1.16;
+  text-wrap: balance;
 }
 
 .proof-text {
@@ -1090,7 +1097,7 @@ main > .section + .section {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 24px;
+  margin-top: clamp(1rem, 2vw, 1.5rem);
 }
 
 .btn-proof-secondary {
@@ -1121,7 +1128,7 @@ main > .section + .section {
 .proof-image {
   width: 100%;
   height: 100%;
-  min-height: 320px;
+  min-height: clamp(260px, 30vw, 420px);
   object-fit: cover;
 }
 
@@ -1185,6 +1192,10 @@ main > .section + .section {
 
   .header-cta {
     display: none;
+  }
+
+  .hero-home {
+    min-height: auto;
   }
 
   .hero-image-card {
@@ -1453,4 +1464,23 @@ main > .section + .section {
 .site-nav a.active::after,
 .site-nav a:hover::after {
   background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+
+@media (min-width: 1500px) {
+  :root {
+    --max-width: 1380px;
+  }
+
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+  }
+
+  .proof-card {
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 0.94fr);
+  }
+
+  .cta-band-inner {
+    align-items: center;
+  }
 }
