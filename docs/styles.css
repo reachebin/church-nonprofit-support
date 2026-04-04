@@ -1229,6 +1229,21 @@ main > .section + .section {
   }
 }
 
+@media (max-width: 1360px) {
+  .hero-split-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(380px, 1fr);
+  }
+
+  .hero-content-panel {
+    max-width: 100%;
+  }
+
+  .hero h1,
+  .page-hero h1 {
+    font-size: clamp(2.2rem, 3.8vw, 3.7rem);
+  }
+}
+
 @media (max-width: 760px) {
   .proof-copy {
     padding: 22px;
