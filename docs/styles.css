@@ -746,7 +746,7 @@ main > .section + .section {
 /* Demo cards */
 .demo-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) repeat(2, minmax(0, 0.85fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(1rem, 2.2vw, 1.5rem);
 }
 
@@ -755,6 +755,8 @@ main > .section + .section {
   overflow: hidden;
   background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
   min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .demo-card-featured {
@@ -763,8 +765,31 @@ main > .section + .section {
     linear-gradient(180deg, #ffffff 0%, #f4fbff 100%);
 }
 
+.demo-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #dfe8f3;
+  border-bottom: 1px solid var(--border);
+}
+
+.demo-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1200ms var(--motion-ease-soft), filter 1200ms var(--motion-ease-soft);
+}
+
+.demo-card:hover .demo-card-image {
+  transform: scale(1.03);
+}
+
 .demo-card-body {
   padding: clamp(1.35rem, 2.3vw, 1.8rem);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .demo-meta-row {
@@ -800,7 +825,7 @@ main > .section + .section {
 
 .demo-card h3 {
   margin: 0 0 10px;
-  font-size: clamp(1.45rem, 2vw, 1.9rem);
+  font-size: clamp(1.35rem, 1.8vw, 1.75rem);
   line-height: 1.16;
 }
 
@@ -817,6 +842,14 @@ main > .section + .section {
 .demo-list li {
   margin-bottom: 9px;
   color: var(--text);
+}
+
+.demo-actions {
+  margin-top: auto;
+  padding-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 /* Trust section */
