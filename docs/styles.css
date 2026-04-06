@@ -28,7 +28,9 @@
   --motion-duration-fast: 520ms;
   --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --motion-ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --orbit-stroke: rgba(255, 255, 255, 0.42);
 }
+
 
 * {
   box-sizing: border-box;
@@ -353,6 +355,41 @@ p {
   pointer-events: none;
 }
 
+.hero-orbit {
+  position: absolute;
+  inset: clamp(0.55rem, 1.2vw, 1rem) clamp(0.9rem, 1.8vw, 1.4rem);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.hero-orbit-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.hero-orbit-track {
+  fill: none;
+  stroke: var(--orbit-stroke);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 14 18 220 18;
+  animation: orbitTrackPulse 18s linear infinite;
+}
+
+.hero-orbit-glow {
+  fill: rgba(255, 255, 255, 0.95);
+  opacity: 0.28;
+}
+
+.hero-orbit-arrow {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.95);
+  stroke-width: 3.3;
+}
+
 .hero-gridline {
   position: absolute;
   inset: 0;
@@ -368,8 +405,8 @@ p {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(440px, 0.9fr) minmax(500px, 1.1fr);
-  gap: clamp(1rem, 2vw, 2rem);
+  grid-template-columns: minmax(460px, 0.94fr) minmax(500px, 1.06fr);
+  gap: clamp(0.95rem, 1.8vw, 1.7rem);
   align-items: center;
   min-height: inherit;
 }
@@ -422,8 +459,8 @@ p {
 
 .hero-content-panel {
   width: 100%;
-  max-width: clamp(500px, 34vw, 590px);
-  padding: clamp(1.4rem, 2.5vw, 2rem) clamp(1.25rem, 2.2vw, 1.9rem) clamp(1.5rem, 2.6vw, 2.1rem);
+  max-width: clamp(540px, 38vw, 650px);
+  padding: clamp(1.55rem, 2.7vw, 2.2rem) clamp(1.5rem, 2.7vw, 2.3rem) clamp(1.65rem, 2.8vw, 2.3rem);
   border-radius: 30px;
   background: linear-gradient(180deg, rgba(10, 31, 56, 0.62) 0%, rgba(8, 24, 43, 0.48) 100%);
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -438,10 +475,19 @@ p {
 }
 
 .hero-home-panel h1 {
-  max-width: 10ch;
+  max-width: 15ch;
   margin-bottom: 0;
   margin-left: auto;
   margin-right: auto;
+}
+
+.hero-heading-top,
+.hero-heading-line {
+  display: block;
+}
+
+.hero-heading-line {
+  white-space: nowrap;
 }
 
 .hero-meta {
@@ -451,8 +497,8 @@ p {
   justify-content: center;
   align-items: center;
   gap: 0.45rem 0.8rem;
-  color: rgba(255, 255, 255, 0.88);
-  font-size: 0.97rem;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.94rem;
   font-weight: 700;
   line-height: 1.5;
 }
@@ -476,7 +522,7 @@ p {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  min-height: 460px;
+  min-height: 470px;
   padding-top: 0;
   padding-right: 0;
 }
@@ -1439,15 +1485,30 @@ main > .section + .section {
   50% { transform: translate3d(0, -10px, 0) rotate(-0.25deg); }
 }
 
+@keyframes orbitTrackPulse {
+  0% {
+    stroke-dashoffset: 0;
+    opacity: 0.46;
+  }
+  50% {
+    stroke-dashoffset: -160;
+    opacity: 0.82;
+  }
+  100% {
+    stroke-dashoffset: -320;
+    opacity: 0.46;
+  }
+}
+
 /* Responsive */
 @media (max-width: 1360px) {
   .hero-split-layout {
-    grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
-    gap: clamp(0.9rem, 1.8vw, 1.5rem);
+    grid-template-columns: minmax(0, 0.98fr) minmax(430px, 1.02fr);
+    gap: clamp(0.8rem, 1.6vw, 1.25rem);
   }
 
   .hero-content-panel {
-    max-width: min(100%, 560px);
+    max-width: min(100%, 610px);
   }
 
   .hero h1,
@@ -1497,6 +1558,10 @@ main > .section + .section {
     min-height: clamp(580px, calc(100svh - 78px), 780px);
     padding-top: clamp(2.8rem, 5vw, 4rem);
     background-position: 68% center;
+  }
+
+  .hero-orbit {
+    inset: 0.6rem 0.8rem;
   }
 
   .hero-monitor-stage {
@@ -1594,6 +1659,11 @@ main > .section + .section {
     padding-top: 26px;
   }
 
+  .hero-orbit {
+    inset: 0.25rem 0.35rem;
+    opacity: 0.48;
+  }
+
   .hero-split-layout {
     gap: 1.75rem;
   }
@@ -1659,7 +1729,11 @@ main > .section + .section {
   }
 
   .hero-home-panel h1 {
-    max-width: 12ch;
+    max-width: 13.5ch;
+  }
+
+  .hero-heading-line {
+    white-space: nowrap;
   }
 
   .hero-actions-compact,
@@ -1746,7 +1820,8 @@ main > .section + .section {
   .hero-monitor-image,
   .service-card-image,
   .demo-card,
-  .trust-card {
+  .trust-card,
+  .hero-orbit-track {
     animation: none !important;
     transition: none !important;
     transform: none !important;
@@ -1766,7 +1841,8 @@ body.capture-mode .site-header {
 body.capture-mode .reveal,
 body.capture-mode .motion-depth,
 body.capture-mode .hero-content-panel,
-body.capture-mode .hero-monitor-image {
+body.capture-mode .hero-monitor-image,
+body.capture-mode .hero-orbit-track {
   animation: none !important;
   transition: none !important;
   transform: none !important;
