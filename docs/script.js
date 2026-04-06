@@ -17,7 +17,6 @@ if (menuToggle && siteNav) {
   const toggleMenu = (event) => {
     event.stopPropagation();
     const isOpen = siteNav.classList.contains("open");
-
     if (isOpen) {
       closeMenu();
     } else {
@@ -27,11 +26,8 @@ if (menuToggle && siteNav) {
 
   menuToggle.addEventListener("click", toggleMenu);
 
-  const navLinks = siteNav.querySelectorAll("a");
-  navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      closeMenu();
-    });
+  siteNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
   });
 
   document.addEventListener("click", (event) => {
@@ -59,7 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const captureMode = urlParams.get("capture") === "1";
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const revealRegistry = new WeakSet();
-  const depthElements = Array.from(document.querySelectorAll(".hero-content-panel, .hero-monitor-stage, .proof-image-card"));
+  const depthElements = Array.from(
+    document.querySelectorAll(".hero-content-panel, .hero-monitor-stage, .demo-card-featured")
+  );
 
   if (captureMode) {
     document.body.classList.add("capture-mode");
@@ -67,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const addReveal = (selector, options = {}) => {
     const {
-      variant = "up",
+      variant = "scale-soft",
       immediate = false,
       stagger = false,
       baseDelay = 0,
@@ -98,21 +96,16 @@ document.addEventListener("DOMContentLoaded", () => {
   addReveal(".hero-content", { variant: "clip", immediate: true, baseDelay: 40 });
   addReveal(".hero-monitor-stage", { variant: "scale-soft", immediate: true, baseDelay: 180 });
   addReveal(".page-hero .container", { variant: "clip", immediate: true, baseDelay: 60 });
-
   addReveal(".section-header", { variant: "clip" });
-  addReveal(".section-label, .proof-kicker", { variant: "clip", stagger: true, step: 60 });
-  addReveal(".service-visual-card", { variant: "mask", stagger: true, baseDelay: 40, step: 110 });
+  addReveal(".service-visual-card", { variant: "mask", stagger: true, baseDelay: 30, step: 110 });
+  addReveal(".marketing-service-card", { variant: "mask", stagger: true, baseDelay: 30, step: 100 });
   addReveal(".task-card", { variant: "scale-soft", stagger: true, step: 85 });
-  addReveal(".feature-card", { variant: "scale-soft", stagger: true, step: 95 });
-  addReveal(".audience-card", { variant: "scale-soft", stagger: true, step: 95 });
-  addReveal(".marketing-service-card", { variant: "mask", stagger: true, step: 95 });
   addReveal(".step-card", { variant: "scale-soft", stagger: true, step: 85 });
-  addReveal(".note-card", { variant: "mask", stagger: true, step: 85 });
-  addReveal(".stacked-item", { variant: "mask", stagger: true, step: 90 });
+  addReveal(".audience-card", { variant: "scale-soft", stagger: true, step: 85 });
   addReveal(".contact-panel, .contact-card", { variant: "mask", stagger: true, step: 110 });
   addReveal(".premium-gradient, .showcase-card", { variant: "mask" });
-  addReveal(".proof-copy", { variant: "clip" });
-  addReveal(".proof-image-card", { variant: "scale-soft" });
+  addReveal(".demo-card", { variant: "mask", stagger: true, step: 100 });
+  addReveal(".trust-card", { variant: "scale-soft", stagger: true, step: 90 });
 
   const revealElements = Array.from(document.querySelectorAll(".reveal"));
   const revealAll = () => {
@@ -152,8 +145,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const applyDepth = () => {
     const scrollY = window.scrollY || window.pageYOffset;
+
     depthElements.forEach((element, index) => {
-      const intensity = index === 1 ? 0.045 : 0.02;
+      const intensity = index === 1 ? 0.045 : 0.018;
       const shift = Math.max(-14, Math.min(14, scrollY * intensity * -1));
       element.classList.add("motion-depth");
       element.style.setProperty("--depth-shift", `${shift.toFixed(2)}px`);
