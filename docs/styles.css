@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+
 :root {
   --bg: #f4f7fb;
   --surface: #ffffff;
@@ -34,7 +36,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
   font-size: clamp(1rem, 0.98rem + 0.18vw, 1.08rem);
   color: var(--text);
   background: var(--bg);
@@ -44,6 +46,13 @@ body {
 
 body.nav-open {
   overflow: hidden;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }
 
 img {
