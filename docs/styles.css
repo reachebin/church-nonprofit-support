@@ -21,7 +21,7 @@
   --section-space: clamp(4.5rem, 7vw, 7rem);
   --section-space-compact: clamp(3.4rem, 5.2vw, 5.2rem);
   --content-gap: clamp(1.25rem, 2.4vw, 2.25rem);
-  --hero-overlay: linear-gradient(90deg, rgba(5, 18, 35, 0.88) 0%, rgba(8, 29, 53, 0.76) 32%, rgba(13, 56, 99, 0.54) 60%, rgba(22, 95, 168, 0.20) 100%);
+  --hero-overlay: linear-gradient(90deg, rgba(4, 14, 28, 0.92) 0%, rgba(6, 23, 44, 0.82) 30%, rgba(10, 42, 77, 0.54) 58%, rgba(22, 95, 168, 0.18) 100%);
   --hero-monitor-shadow: 0 30px 84px rgba(3, 14, 30, 0.42);
   --font-sans: "Manrope", Arial, Helvetica, sans-serif;
   --motion-duration: 900ms;
@@ -348,9 +348,79 @@ p {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 80% 28%, rgba(115, 203, 255, 0.28), transparent 26%),
-    radial-gradient(circle at 86% 70%, rgba(115, 203, 255, 0.14), transparent 24%);
+    radial-gradient(circle at 74% 30%, rgba(173, 231, 255, 0.18), transparent 18%),
+    radial-gradient(circle at 82% 76%, rgba(115, 203, 255, 0.18), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 38%);
   pointer-events: none;
+}
+
+.hero-light-rig {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-light-panel,
+.hero-light-haze {
+  position: absolute;
+  opacity: 0.68;
+}
+
+.hero-light-panel {
+  top: -10%;
+  bottom: -18%;
+  width: clamp(180px, 16vw, 300px);
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.18) 22%,
+    rgba(159, 226, 255, 0.56) 48%,
+    rgba(255, 255, 255, 0.14) 74%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  box-shadow:
+    0 0 36px rgba(173, 231, 255, 0.18),
+    0 0 110px rgba(115, 203, 255, 0.14);
+  transform-origin: center;
+}
+
+.hero-light-panel-left {
+  left: 54%;
+  transform: rotate(-14deg);
+  animation: heroLightColumnLeft 12s ease-in-out infinite;
+}
+
+.hero-light-panel-center {
+  left: 68%;
+  width: clamp(220px, 18vw, 340px);
+  opacity: 0.84;
+  transform: rotate(2deg);
+  animation: heroLightColumnCenter 9s ease-in-out infinite;
+}
+
+.hero-light-panel-right {
+  left: 82%;
+  transform: rotate(13deg);
+  animation: heroLightColumnRight 11s ease-in-out infinite;
+}
+
+.hero-light-haze {
+  right: clamp(3%, 8vw, 10%);
+  bottom: clamp(4%, 8vw, 12%);
+  width: clamp(260px, 34vw, 620px);
+  height: clamp(180px, 18vw, 280px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.28) 0%,
+    rgba(173, 231, 255, 0.18) 34%,
+    rgba(115, 203, 255, 0.08) 56%,
+    rgba(115, 203, 255, 0) 100%
+  );
+  animation: heroHazePulse 8.4s ease-in-out infinite;
 }
 
 .hero-gridline {
@@ -512,52 +582,70 @@ p {
   right: 0;
   bottom: 0;
   width: 100%;
-  height: 4px;
+  height: 22px;
   z-index: 1;
   pointer-events: none;
+  overflow: hidden;
 }
 
 .hero-bottom-line,
-.hero-bottom-glow {
+.hero-bottom-glow,
+.hero-bottom-sheen {
   position: absolute;
   left: 0;
   right: 0;
-  width: 100%;
   border-radius: 999px;
 }
 
 .hero-bottom-line {
-  top: 0;
-  height: 2px;
+  bottom: 4px;
+  height: 3px;
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0.36) 0%,
-    rgba(255, 255, 255, 0.92) 18%,
-    rgba(255, 255, 255, 0.78) 50%,
-    rgba(255, 255, 255, 0.92) 82%,
-    rgba(255, 255, 255, 0.36) 100%
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.52) 18%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(255, 255, 255, 0.52) 82%,
+    rgba(255, 255, 255, 0.12) 100%
   );
   box-shadow:
-    0 0 10px rgba(255, 255, 255, 0.34),
-    0 0 22px rgba(255, 255, 255, 0.16);
-  opacity: 0.72;
-  animation: heroFullLinePulse 6.4s ease-in-out infinite;
+    0 0 10px rgba(255, 255, 255, 0.2),
+    0 0 26px rgba(173, 231, 255, 0.14);
+  opacity: 0.82;
+  animation: heroBottomLinePulse 6.8s ease-in-out infinite;
 }
 
 .hero-bottom-glow {
-  top: -7px;
-  height: 16px;
+  left: -2%;
+  right: -2%;
+  bottom: -3px;
+  height: 18px;
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.22) 18%,
-    rgba(255, 255, 255, 0.34) 50%,
-    rgba(255, 255, 255, 0.22) 82%,
+    rgba(173, 231, 255, 0.12) 16%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(173, 231, 255, 0.12) 84%,
     rgba(255, 255, 255, 0) 100%
   );
-  filter: blur(7px);
-  opacity: 0.38;
-  animation: heroFullLineHalo 6.4s ease-in-out infinite;
+  opacity: 0.72;
+  transform-origin: center;
+  animation: heroBottomGlowPulse 6.8s ease-in-out infinite;
+}
+
+.hero-bottom-sheen {
+  top: 1px;
+  width: clamp(200px, 20vw, 360px);
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.78) 46%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  opacity: 0.72;
+  transform: translate3d(-120%, 0, 0);
+  animation: heroBottomSweep 8.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
 /* Page hero */
@@ -1674,29 +1762,87 @@ main > .section + .section {
 }
 
 
-@keyframes heroFullLinePulse {
+@keyframes heroLightColumnLeft {
   0%, 100% {
-    opacity: 0.46;
-    box-shadow:
-      0 0 8px rgba(255, 255, 255, 0.18),
-      0 0 16px rgba(255, 255, 255, 0.10);
+    opacity: 0.34;
+    transform: translate3d(0, 0, 0) rotate(-14deg) scaleY(1);
   }
   50% {
-    opacity: 1;
-    box-shadow:
-      0 0 14px rgba(255, 255, 255, 0.38),
-      0 0 34px rgba(255, 255, 255, 0.18);
+    opacity: 0.6;
+    transform: translate3d(-12px, 6px, 0) rotate(-16deg) scaleY(1.06);
   }
 }
 
-@keyframes heroFullLineHalo {
+@keyframes heroLightColumnCenter {
   0%, 100% {
-    opacity: 0.16;
-    transform: scaleX(0.985);
+    opacity: 0.58;
+    transform: translate3d(0, 0, 0) rotate(2deg) scaleY(1);
   }
   50% {
-    opacity: 0.46;
+    opacity: 0.9;
+    transform: translate3d(10px, -8px, 0) rotate(4deg) scaleY(1.08);
+  }
+}
+
+@keyframes heroLightColumnRight {
+  0%, 100% {
+    opacity: 0.32;
+    transform: translate3d(0, 0, 0) rotate(13deg) scaleY(1);
+  }
+  50% {
+    opacity: 0.56;
+    transform: translate3d(12px, 8px, 0) rotate(15deg) scaleY(1.05);
+  }
+}
+
+@keyframes heroHazePulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes heroBottomLinePulse {
+  0%, 100% {
+    opacity: 0.56;
+    transform: scaleX(0.995);
+  }
+  50% {
+    opacity: 0.96;
     transform: scaleX(1);
+  }
+}
+
+@keyframes heroBottomGlowPulse {
+  0%, 100% {
+    opacity: 0.32;
+    transform: scaleX(0.96);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scaleX(1.02);
+  }
+}
+
+@keyframes heroBottomSweep {
+  0% {
+    opacity: 0;
+    transform: translate3d(-120%, 0, 0) skewX(-18deg);
+  }
+  12% {
+    opacity: 0.78;
+  }
+  52% {
+    opacity: 0.78;
+    transform: translate3d(210%, 0, 0) skewX(-18deg);
+  }
+  70%, 100% {
+    opacity: 0;
+    transform: translate3d(210%, 0, 0) skewX(-18deg);
   }
 }
 
@@ -1779,6 +1925,23 @@ main > .section + .section {
 
   .hero-monitor-stage:hover .hero-monitor-image {
     transform: translate(6px, 0) scale(1.02);
+  }
+
+  .hero-light-panel-left {
+    left: 50%;
+  }
+
+  .hero-light-panel-center {
+    left: 64%;
+  }
+
+  .hero-light-panel-right {
+    left: 78%;
+  }
+
+  .hero-light-haze {
+    right: 4%;
+    width: min(56vw, 520px);
   }
 
   .hero-bottom-trace {
@@ -1882,8 +2045,46 @@ main > .section + .section {
     gap: 0.35rem 0.65rem;
   }
 
+  .hero-light-panel-left {
+    left: 36%;
+    width: min(34vw, 190px);
+    opacity: 0.32;
+  }
+
+  .hero-light-panel-center {
+    left: 56%;
+    width: min(38vw, 230px);
+    opacity: 0.74;
+  }
+
+  .hero-light-panel-right {
+    left: 78%;
+    width: min(28vw, 150px);
+    opacity: 0.24;
+  }
+
+  .hero-light-haze {
+    right: -2%;
+    bottom: 12%;
+    width: min(72vw, 360px);
+    height: min(42vw, 210px);
+  }
+
   .hero-bottom-trace {
     bottom: 0;
+    height: 18px;
+  }
+
+  .hero-bottom-line {
+    height: 2px;
+  }
+
+  .hero-bottom-glow {
+    height: 14px;
+  }
+
+  .hero-bottom-sheen {
+    width: min(52vw, 220px);
   }
 
   .hero-monitor-stage {
@@ -2031,8 +2232,11 @@ main > .section + .section {
   .service-card-image,
   .demo-card,
   .trust-card,
+  .hero-light-panel,
+  .hero-light-haze,
   .hero-bottom-line,
-  .hero-bottom-glow {
+  .hero-bottom-glow,
+  .hero-bottom-sheen {
     animation: none !important;
     transition: none !important;
     transform: none !important;
@@ -2052,7 +2256,12 @@ body.capture-mode .site-header {
 body.capture-mode .reveal,
 body.capture-mode .motion-depth,
 body.capture-mode .hero-content-panel,
-body.capture-mode .hero-monitor-image {
+body.capture-mode .hero-monitor-image,
+body.capture-mode .hero-light-panel,
+body.capture-mode .hero-light-haze,
+body.capture-mode .hero-bottom-line,
+body.capture-mode .hero-bottom-glow,
+body.capture-mode .hero-bottom-sheen {
   animation: none !important;
   transition: none !important;
   transform: none !important;
