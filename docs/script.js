@@ -63,6 +63,62 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("capture-mode");
   }
 
+  const initResilientImages = () => {
+    const images = Array.from(document.querySelectorAll(".resilient-image"));
+
+    images.forEach((image) => {
+      const shell = image.closest(".image-shell");
+      const fallbackAttr = image.dataset.fallbackSrcs || "";
+      const candidates = [image.getAttribute("src") || ""]
+        .concat(
+          fallbackAttr
+            .split("|")
+            .map((item) => item.trim())
+            .filter(Boolean)
+        )
+        .filter(Boolean)
+        .filter((value, index, array) => array.indexOf(value) === index);
+
+      if (!candidates.length) {
+        if (shell) {
+          shell.classList.add("is-broken");
+        }
+        return;
+      }
+
+      let currentIndex = 0;
+
+      const markBroken = () => {
+        if (shell) {
+          shell.classList.add("is-broken");
+        }
+      };
+
+      const clearBroken = () => {
+        if (shell) {
+          shell.classList.remove("is-broken");
+        }
+      };
+
+      image.addEventListener("load", clearBroken);
+
+      image.addEventListener("error", () => {
+        currentIndex += 1;
+
+        if (currentIndex < candidates.length) {
+          image.src = candidates[currentIndex];
+          return;
+        }
+
+        markBroken();
+      });
+
+      image.src = candidates[currentIndex];
+    });
+  };
+
+  initResilientImages();
+
   const addReveal = (selector, options = {}) => {
     const {
       variant = "scale-soft",
