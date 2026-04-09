@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
   addReveal(".step-card", { variant: "scale-soft", stagger: true, step: 85 });
   addReveal(".audience-card", { variant: "scale-soft", stagger: true, step: 85 });
   addReveal(".contact-panel, .contact-card", { variant: "mask", stagger: true, step: 110 });
-  addReveal(".premium-gradient, .showcase-card", { variant: "mask" });
+  addReveal(".premium-gradient, .showcase-card, .proof-card", { variant: "mask" });
   addReveal(".demo-card", { variant: "mask", stagger: true, step: 100 });
   addReveal(".trust-card", { variant: "scale-soft", stagger: true, step: 90 });
   addReveal(".social-spotlight", { variant: "mask" });
