@@ -2221,10 +2221,6 @@ main > .section + .section {
     padding: 20px;
   }
 
-  .container {
-    width: min(94%, var(--max-width));
-  }
-
   .proof-image {
     min-height: 260px;
   }
@@ -2294,78 +2290,6 @@ main > .section + .section {
   .home-page .hero-home,
   .home-page .hero-full-image {
     padding-top: 26px;
-  }
-
-  .home-page .hero-full-image {
-    min-height: auto;
-    padding: 1.2rem 0 2.4rem;
-    background-position: 60% center;
-  }
-
-  .home-page .hero-split-layout {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-    align-items: start;
-  }
-
-  .home-page .hero-content-panel {
-    width: 100%;
-    max-width: none;
-    padding: 1.6rem 1.25rem 1.45rem;
-    border-radius: 24px;
-  }
-
-  .home-page .eyebrow {
-    max-width: 20ch;
-    margin-bottom: 12px;
-    font-size: 0.76rem;
-    line-height: 1.5;
-    letter-spacing: 0.07em;
-  }
-
-  .home-page .hero h1 {
-    font-size: clamp(2.55rem, 9.6vw, 3.5rem);
-    line-height: 0.98;
-    margin-bottom: 14px;
-    max-width: 11ch;
-  }
-
-  .home-page .hero-text-short {
-    max-width: 22ch;
-    font-size: 1.02rem;
-    line-height: 1.55;
-  }
-
-  .home-page .hero-badges {
-    gap: 8px;
-  }
-
-  .home-page .badge-chip {
-    width: auto;
-    justify-content: center;
-  }
-
-  .home-page .hero-actions {
-    margin-top: 1.2rem;
-    gap: 10px;
-  }
-
-  .home-page .hero-actions .btn {
-    width: 100%;
-  }
-
-  .home-page .hero-monitor-stage {
-    min-height: 0;
-    justify-content: center;
-    align-items: flex-end;
-    padding: 0.35rem 0 0;
-  }
-
-  .home-page .hero-monitor-image,
-  .home-page .hero-monitor-stage:hover .hero-monitor-image {
-    width: min(100%, 420px);
-    margin: 0 auto;
-    transform: none;
   }
 
   .page-hero {
