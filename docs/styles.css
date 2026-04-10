@@ -2707,3 +2707,11 @@ html {
     justify-content: center;
   }
 }
+
+/* Precise desktop-only sandwich demo button alignment fix */
+@media (min-width: 761px) {
+  #demo-portfolio .demo-grid > .demo-card:nth-child(2) .demo-actions .btn-nav {
+    width: calc(100% - 4px);
+    margin-left: 4px;
+  }
+}
