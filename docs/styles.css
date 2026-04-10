@@ -2708,3 +2708,27 @@ html {
     justify-content: center;
   }
 }
+
+/* Mobile tap-target fix for Services links/buttons */
+@media (max-width: 760px) {
+  .site-nav a {
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+  }
+
+  .hero-actions,
+  .cta-band-actions,
+  .contact-button-list {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-actions .btn,
+  .cta-band-actions .btn,
+  .contact-button-list .contact-link-btn {
+    position: relative;
+    z-index: 3;
+    pointer-events: auto;
+  }
+}
